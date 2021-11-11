@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #container {
+            width: 450px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #333;
+        }
+
+        .day1 {
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .day1 h3 {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .day1 .accent {
+            margin-left: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 3.5em;
+        }
+
+        .bar {
+            width: 100%;
+            margin-top: 60px;
+            padding-left: 20px;
+            height: 40px;
+            background-color: #747474;
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 40px;
+        }
+
+        .day2 {
+            width: 420px;
+            margin: 20px 0;
+        }
+
+        .day2 ul {
+            list-style: none;
+            border-bottom: 1px dashed #ccc;
+            height: 60px;
+        }
+
+        .day2 ul:last-child {
+            border-bottom: none;
+        }
+
+        .item-title {
+            float: left;
+            width: 160px;
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 60px;
+        }
+
+        .item-date {
+            float: right;
+            margin-right: 60px;
+            font-size: 1.2em;
+            color: blue;
+            line-height: 60px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="day1">
+            <h3>우리 만난지</h3>
+            <p class="accent" id="accent">몇 일?</p>
+        </div>
+        <div class="bar">기념일 계산</div>
+        <div class="day2">
+            <ul>
+                <li class="item-title">100일</li>
+                <li class="item-date" id="day100">날짜</li>
+            </ul>
+            <ul>
+                <li class="item-title">1년</li>
+                <li class="item-date" id="day365">날짜</li>
+            </ul>
+            <ul>
+                <li class="item-title">500일</li>
+                <li class="item-date" id="day500">날짜</li>
+            </ul>
+            <ul>
+                <li class="item-title">1000일</li>
+                <li class="item-date" id="day1000">날짜</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // var date = new Date(); // Tue Oct 19 2021 12:32:40 GMT+0900 (Japan Standard Time) -- 현재 시간을 GMT로 저장한다. 
+        // var date = new Date('2021-10-01'); // Fri Oct 01 2021 09:00:00 GMT+0900 (Japan Standard Time) -- 대입한 날짜 및 시간을 GMT로 저장한다. 
+        var now = new Date();
+        var dayOne = new Date('2021-10-09');
+        var timeNow = now.getTime(); // 현재 날짜를 milisecond로 저장한다. (날짜도 숫자로 표현이 가능하다.)
+        var timeOne = dayOne.getTime(); // dayOne의 날짜를 milisecond로 저장한다. 
+        var timePassed = timeNow - timeOne;
+        var dayPassed = Math.round(timePassed/(24*60*60*1000));
+        document.querySelector('#accent').innerText = dayPassed + " days";
+
+        calcDate(100);
+        calcDate(365);
+        calcDate(500);
+        calcDate(1000);
+        function calcDate(days) {
+            var timeFutureDay = timeOne + days*(24*60*60*1000);
+            var convertedInDays = new Date(timeFutureDay);
+            var year = convertedInDays.getFullYear();
+            var month = convertedInDays.getMonth()+1;
+            var day = convertedInDays.getDate();
+            document.querySelector('#day' + days).innerText = year + " 년" + month + " 월" + day + " 일";
+        }
+    </script>
+</body>
+
+</html>

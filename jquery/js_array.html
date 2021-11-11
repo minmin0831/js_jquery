@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Array</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+        .highlight0 {
+            background-color: yellow;
+            cursor: pointer;
+        }
+        .highlight1 {
+            background-color: orange;
+            cursor: pointer;
+        }
+        .highlight2 {
+            background-color: cyan;
+            cursor: pointer;
+        }
+        .highlight3 {
+            background-color: purple;
+            cursor: pointer;
+        }
+        .highlight4 {
+            background-color: greenyellow;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            var brSites = [
+                { name: "KBS", link: "http://www.kbs.co.kr"},
+                { name: "SBS", link: "http://www.sbs.co.kr"},
+                { name: "MBC", link: "http://www.imbc.com"},
+                { name: "EBS", link: "http://www.ebs.co.kr"}
+            ];
+            // each는 배열에 있는 배열요소를 모두 함수 내 명령어를 수행하는 메서드이다. 
+            // index에는 배열 위치값이 들어간다. 
+            // item에는 각 배열 요소가 들어간다. 
+            // 해당 함수 내에서 item.link는 곧 brSites.link를 의미한다. 
+            $.each(brSites, function (index, item) {
+                var output = "";
+                output += '<h2>';
+                output += '<a href="' + item.link + '">';
+                output += item.name;
+                output += '</a></h2><br>';
+                document.body.innerHTML += output;
+            });
+            
+            // $('선택자').addClass('class_name');
+            $("h3").addClass("highlight0");
+
+            // $('선택자').hover('')
+            $("h4").hover(function () {
+                $(this).addClass("highlight0");
+            }, function () {
+                $(this).removeClass("highlight0");
+            });
+
+            /*
+            for(var i = 0; i < 5; i++) {
+                $("h5:eq(" + i + ")").addClass("highlight" + i);
+            }
+            */
+
+            /*
+            $("h5").each(function (i, item) { // item은 써도 안써도 상관없다. 
+                // $("h5:eq(" + i + ")").addClass("highlight" + i);
+                $(this).addClass("highlight" + i);
+            });
+            */
+
+            // 가장 많이 사용하는 loop 문 (메서드 내에 내용 대신에 함수를 대입)
+            $("h5").addClass(function (index) { 
+                // index를 parameter로 넣을 수 있다. 이 index는 selector로 들어온 태그를 배열로 통합하였을 때 각 태그의 배열 위치값이다. 
+                // 단, hover나 click 같은 이벤트 성격을 가진 메서드는 index를 가질 수 있다. 그 이유는 event라는 parameter를 이미 갖고 있기 때문이다. 
+                // $(this).addClass("highlight" + index);
+                return "highlight" + index;
+                // function은 return값을 갖게 되면 최종 return 값이 함수 자체를 대입하는 효과를 가진다. 보통은 변수에 이것을 대입하는데,
+                // 이 경우는 메서드에 내용으로 대입할 수도 있다. 
+            });
+
+            var memo = ["Today is Monday", "This is Tuesday", "This is Wednesday"];
+            
+            // $("h5").click(function (event) {
+            //     if(click.shift) {
+            //         $("h5").css()
+            //     }
+            // });
+
+            var index;
+            $("h5").click(function () {
+                index = $(this).index();
+                alert(memo[index]);
+            });
+            
+
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Broadcasting Websites</h1>
+    <div></div>
+    <h3>TGIF</h2>
+    <h4>TGIF Friday!</h4>
+    <h4>SADS Saturday!</h4>
+    <h4>GRFHA Sunday!</h4>
+    
+    <br><br><br><br><br>
+    
+    <h5>LSFIHD Wednesday!</h5>
+    <h5>SFTIT Thirsday!</h5>
+    <h5>TGIF Friday!</h5>
+    <h5>SADS Saturday!</h5>
+    <h5>GRFHA Sunday!</h5>
+
+    <br><br><br><br><br>
+
+    <h5>LSFIHD Wednesday!</h5>
+    <h5>SFTIT Thirsday!</h5>
+    <h5>TGIF Friday!</h5>
+    
+</body>
+</html>

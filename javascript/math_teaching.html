@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Teaching</title>
+    <style>
+        .grade {
+            display: inline-block;
+            padding: 0 20px 30px 20px;
+            margin: 15px;
+            border: 1px solid blue;
+            line-height: 1.5;
+            background-color: beige;
+        }
+
+        .grade>h3 {
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <p>Existing texts Existing texts Existing texts Existing texts Existing texts Existing texts Existing texts Existing
+        texts Existing texts Existing texts</p>
+
+    <script>
+        document.write("<h1> ** 구구단 ** </h1>")
+        for (var i = 2; i <= 9; i++) {
+            document.write("<div class='grade'>");
+            document.write("<h3>" + i + " 단</h3>");
+            for (var j = 1; j <= 9; j++) {
+                document.write(i + " x " + j + " = " + i * j + "<br>");
+            }
+            document.write("</div>");
+        }
+    </script>
+
+    <p>Existing texts Existing texts Existing texts Existing texts Existing texts Existing texts Existing texts Existing
+        texts Existing texts Existing texts</p>
+</body>
+
+</html>

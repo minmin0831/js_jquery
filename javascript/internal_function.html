@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Function</title>
+</head>
+<body>
+    Math.sqrt(number); 
+    setTimeout(function, milisecond);
+    setInterval(function, milisecond);
+    clearTimeout(var_name);
+    clearInterval(var_name);
+    Date();
+    
+    <br>
+    <button onclick="popupStop();">광고창 보기 증단</button>
+
+    <script>
+        var site = ['www.kbs.co.kr', 'www.imbc.com', 'www.sbs.co.kr'];
+        var index = 0;
+        var win = setInterval(function () { // 내장함수 setInterval의 정보를 win 이라는 변수에 담아 전역변수로 만든다. 
+            window.open('http://' + site[index], '', 'width=500, height=300'); 
+            index++;
+            if(index==3) {
+                index=0;
+            }
+        }, 5000); // 5초마다 kbs 홈페이지를 팝업으로 계속 띄운다. 
+
+        function popupStop() {
+            clearInterval(win);
+        }
+    </script>
+
+    <script>
+        // alert(Math.sqrt(2)); // 스퀘어 2의 값을 보내준다. 
+
+        // setTimeout(function() {
+        //     alert('3초가 지났습니다 ㅋㅋㅋ');
+        // }, 3000); // 3초 뒤에 alert가 나타난다. 
+
+        // setInterval(function() {
+        //     alert('3초 후에 또 나타납니다 ㅋㅋㅋ');
+        // }, 3000); // 3초마다 alert가 나타난다. 
+
+        // DOM 조작 함수
+        // var site = ['www.kbs.co.kr', 'www.imbc.com', 'www.sbs.co.kr'];
+        // var index = 0;
+        // setInterval(function () {
+        //     if(index > 2) {
+        //         index = 0;
+        //         window.open('http://' + site[index], '', 'width=500, height=300');
+        //     } else {
+        //         window.open('http://' + site[index], '', 'width=500, height=300');
+        //         index++;
+        //     }
+
+        // OR
+
+        //     window.open('http://' + site[index], '', 'width=500, height=300');
+        //     index++;
+        //     if(index==3) {
+        //         index=0;
+        //     }
+        // }, 5000); // 5초마다 kbs 홈페이지를 팝업으로 계속 띄운다. 
+
+    </script>
+</body>
+</html>

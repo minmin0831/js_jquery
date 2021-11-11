@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - create</title>
+
+    <script>
+        window.onload = function() {
+            var header = document.createElement("h2");
+            var text = document.createTextNode("문서객체만들기");
+            header.appendChild(text);
+            document.body.appendChild(header);
+            
+            var koala = document.createElement("h3");
+            var textKoala = document.createTextNode("Koala");
+            koala.appendChild(textKoala);
+            koala.id = "ko";
+            document.body.appendChild(koala);
+
+            var img = document.createElement("img");
+            img.src="/images/koala.jpg";
+            img.width=300;
+            document.body.appendChild(img);
+
+            document.getElementById("ko").innerHTML = "I'm Koala. Welcome to the Koalania!" // document.createTextNode("Koala")를 대체한다.
+        }
+    </script>
+</head>
+<body>
+    <h1>문서객체모델(DOM)</h1>
+    <ul></ul>
+    <script>
+        document.ul.innerHTML = "<li>Koala</li><li>Kangeroo</li><li>Wallabee</li>"
+    </script>
+</body>
+</html>

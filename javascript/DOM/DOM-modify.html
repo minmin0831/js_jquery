@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - modify</title>
+    <script>
+        window.onload = function () {
+            var head1 = document.getElementById("head1");
+            var head2 = document.getElementById("head2");
+
+            head1.onclick = function () {
+                head1.innerHTML = "화창하고 맑음.";
+            }
+            head2.onclick = function () {
+                head2.innerHTML = "문서 객체 모델을 배우고 있습니다.";
+            }
+            document.getElementById("head3").onclick = function () {
+                head3.innerHTML = "This is h3 text.";
+            }
+
+            var head4 = document.getElementsByTagName("h4");
+            head4[0].innerHTML = "The weather is damn good!";
+            head4[1].innerHTML = "The weather is damn good!";
+
+            var content = ["화창합니다", "DOM을 배웁니다.", "월요일입니다."];
+            var head5 = document.getElementsByTagName("h5");
+
+            setTimeout(function () {
+                // head5[0].innerHTML = content[0];
+                for(var i=0; i<head5.length; i++) {
+                    head5[i].innerHTML = content[i];
+                }
+                }, 5000)
+
+            var header1 = document.querySelector("#header1");
+            var header2 = document.querySelector(".header2");
+            // querySelector("")라는 메서드는 괄호 안에 선택자를 입력하도록 한다. 
+            // 선택자로는 태그명 또는 class(.클래스명), id(#id명) 명으로 호출한다. 
+            // 선택자로 가장 처음 선택되는 문서객체를 가져온다. 때문에 class의 경우 여러개의 클래스가 같은 이름으로 지정되어 있다면, 
+            // 해당 클래스 이름을 할당받은 첫번째 태그를 호출한다. 
+            header1.onclick = function () {
+                header1.innerHTML = "화창하고 ";
+            }
+            header2.onclick = function () {
+                header2.innerHTML = "맑아요 ";
+            }
+
+            // querySelectorAll("")은 선택자로 선택되는 문서 객체를 배열로 가져온다. 
+            var paragragh1 = document.querySelectorAll("p");
+            var content2 = ["1. 화창합니다", "2. DOM을 배웁니다.", "3. 월요일입니다."];
+            setTimeout(function () {
+                for(var i = 0; i<paragragh1.length; i++) {
+                    paragragh1[i].innerHTML = content2[i];
+                }
+            }, 3000);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="head1">오늘의 날씨?</h1>
+    <h2 id="head2">오늘 수업은?</h2>
+    <h3 id="head3">이것은 h3 텍스트입니다. </h3>
+    <h4>I'm the head 4.</h4>
+    <h4>What am I?</h4>
+    <h5>WEATHER</h5>
+    <h5>CLASS</h5>
+    <h5>DAY OF THE WEEK</h5>
+
+    <h1 id="header1">날씨1</h1>
+    <h1 class="header2">날씨2</h1>
+
+    <p>1. ipsum lorem ipsum dolor sit amet, consectet</p>
+    <p>2. ipsum lorem ipsum dolor sit amet, consectet</p>
+    <p>3. ipsum lorem ipsum dolor sit amet, consectet</p>
+</body>
+
+</html>

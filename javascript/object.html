@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    
+
+    <script>
+
+        var person = {
+            FirstName : 'John',
+            LastName : 'Doe',
+            Eat : function (food) {
+                console.log('My name is ' + this.FirstName + ' ' + this.LastName + '. And he eats ' + food + ' everyday.'); 
+                // 객체 내에 있기 때문에 함수 외부 객체인 name은 this.로 그리고 food는 parameter로 호출한다. 
+            }
+        };
+        // key에 value로 익명 함수를 대입할 수도 있다. 
+        // console.log('My name is ' + person.FirstName + ' ' + person.LastName + '. And he eats ' + persons.Eat + ' everyday.');
+        
+        person.Eat('noodles');
+        // 함수는 객체 밖에서 호출만 해도 호출이 된다. 
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - modify - css</title>
+    <script>
+        window.onload = function() {
+            var head1 = document.getElementById("head1");
+            head1.style.border = "2px solid blue";
+            head1.style.color = "orange";
+            head1.style.backgroundColor = "yellow"; 
+            head1.style["backgroundColor"] = "red"; 
+            head1.style["background-color"] = "blue"; // 이 경우는 css와 같은 속성명을 사용할 수 있다. 
+            // backgroundColor는 하이픈(-)이 빠진 속성명이다. 이유는 javascript에서 마이너스(-) 기호를 빼기(-)로 인식하기 때문이다. 
+        }
+    </script>
+</head>
+<body>
+    <h1 id="head1">오늘의 날씨?</h1>
+    <h1>오늘의 수업은?</h1>
+    <h1>오늘은 무슨 요일?</h1>
+</body>
+</html>

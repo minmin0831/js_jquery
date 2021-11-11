@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 4</title>
+    <script src="js/student.js"></script>
+    <script>
+        // student 클래스 함수를 이용한 student 객체 만들기.
+        var studentObject = new createStudent('Bob Smith', 80, 75, 92, 40);
+        var studentObject2 = new createStudent('Will Smith', 80, 75, 92, 40);
+
+        // student 클래스 함수를 이용한 student 배열 만들기.
+        var studentArray = [];
+        studentArray.push(new createStudent('Bill Mccoy', 80, 75, 92, 40));
+        studentArray.push(new createStudent('Ron Proctor', 80, 75, 92, 40));
+
+        document.write('** Class Grade **' + '<br>');
+        document.write('name : ' + studentArray[0].name + '<br>' + 'total : ' + studentArray[0].getSum() + '<br>' + 'average : ' + studentArray[0].getAvg() + '<br><br>');
+        for(var i in studentArray) {
+            document.write(studentArray[i].toString() + '<br>');
+            document.write('<br>');
+        }
+    </script>
+</head>
+<body>
+    
+
+    
+</body>
+</html>

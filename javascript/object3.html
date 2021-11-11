@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 2</title>
+</head>
+<body>
+    
+
+    <script>
+        var student = {};
+        student.name = 'John Doe';
+        student.age = 30;
+        student.hobby = "basketball";
+        student.specialty = 'programming';
+        var output = '';
+        output += 'name : ' + student.name + '<br>';
+        output += 'age : ' + student.age + '<br>'; 
+        output += 'hobby : ' + student.hobby + '<br>';
+        output += 'specialty : ' + student.specialty + '<br>' + '<br>';
+        document.write(output);
+
+        var elemName = 'name';
+        document.write('name : ' + student[elemName] + '<br>' + '<br>');
+
+        // for in 반복문 (key-value 객체)
+        for(var key in student) {
+            document.write(key + ' : ' + student[key] + '<br>');
+        }
+
+        document.write('<br>')
+
+        delete(student.hobby); // student 객체에 저장된 자료 삭제
+
+        document.write('modified data<br>');
+        for(var key in student) {
+            document.write(key + ' : ' + student[key] + '<br>');
+        }
+
+        document.write('<br>')
+
+        // for in 반복문 (일반 배열 객체)
+        var fruits = ['apple', 'pear', 'tangerin', 'grape'];
+        for(var i in fruits) {
+            document.write(fruits[i] + '<br>');
+        }
+
+    </script>
+
+</body>
+</html>

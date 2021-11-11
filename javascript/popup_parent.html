@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript - DOM</title>
+    <script>
+        // window.open(URL, name, 설정)
+        // var win = window.open("", "", "width=600, height=300");
+
+        // var win2 = window.open("http://www.kbs.co.kr", "popup", "width=600, height=300");
+        // if(win2 == null) {
+        //     alert("팝업이 차단되어 있습니다. 팝업 차단을 해제하고 새로고침을 해주세요.")
+        // } else {
+        //     win.document.write("<h1>Have a greate weekend.</h1>");
+        // }
+
+        var win3 = window.open("popup.html", "공지사항", "width=600, height=300");
+        win3.moveTo(0,0); // 절대위치
+
+        if(win3 == null) {
+            alert("팝업이 차단되어 있습니다. 팝업 차단을 해제하고 새로고침을 해주세요.")
+        } else {
+            // win3.moveBy(x, y) // 상대위치 (잘 사용하지 않음.)
+            setInterval(function () {
+            win3.moveBy(10, 10); // 1초당 한번씩 x, y 축 방향으로 10px씩 popup창이 이동한다. 
+        }, 1000);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

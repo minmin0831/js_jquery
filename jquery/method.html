@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method</title>
+    <style>
+        table {
+            width: 500px
+        }
+
+        table td {
+            text-align: center;
+        }
+
+        .table {
+            width: 500px
+        }
+
+        .table td {
+            text-align: center;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /* 
+            $(selector).method();
+            $(selector).method(content);
+            $(selector).method(content).method(content);
+
+            element:odd
+            element:even
+            element:first
+            element:last
+            element:contains('string') > 특정 문자열이 포함하는 문서 객체
+            element:eq(n) > n번째 위치하는 문서객체 선택
+            element:gt(n) : n번째를 초과하는 문서 객체를 선택
+            element:lt(n) : n번째 미만에 위치하는 문서 객체를 선택
+            element:has(h1) : h1태그가 있는 문서 객체
+            element:not(선택자) : 선택자와 일치하지 않는 문서객체
+            element:nth-child(3n+1) : 3n+1번째 위치하는 문서 객체를 선택
+                - n에 0을 대입하면 1번째
+                - n에 1을 대입하면 4번째
+                - n에 2를 대입하면 7번째
+                - ... 3씩 늘어나는 등차수열 형식으로 해당 위치의 문서 객체를 선택. 
+            */
+            $('tr:odd').css('background', '#b2ebf4'); // 
+            $('tr:even').css('background', 'orange');
+            $('tr:first').css('background', '#000').css('color', '#fff');
+
+            $('.table tr:eq(0)').css('background', 'green').css('color', 'white');
+            $('.table td:nth-child(3n+1)').css('background', '#b2ebf4');
+            $('.table td:nth-child(3n+2)').css('background', 'purple');
+            $('.table td:nth-child(3n)').css('background', 'orange');
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Blood Type</th>
+            <th>Regioin</th>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>Type A</td>
+            <td>California</td>
+        </tr>
+        <tr>
+            <td>Chris</td>
+            <td>Type B</td>
+            <td>Ontario</td>
+        </tr>
+        <tr>
+            <td>Abe</td>
+            <td>Type A</td>
+            <td>Seattle</td>
+        </tr>
+        <tr>
+            <td>Steven</td>
+            <td>Type O</td>
+            <td>Chicago</td>
+        </tr>
+        <tr>
+            <td>Paul</td>
+            <td>Type AB</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Kyle</td>
+            <td>Type O</td>
+            <td>Miami</td>
+        </tr>
+    </table>
+
+    <br><br><br><br><br><br>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Blood Type</th>
+            <th>Regioin</th>
+        </tr>
+        <tr>
+            <td>David</td>
+            <td>Type A</td>
+            <td>California</td>
+        </tr>
+        <tr>
+            <td>Chris</td>
+            <td>Type B</td>
+            <td>Ontario</td>
+        </tr>
+        <tr>
+            <td>Abe</td>
+            <td>Type A</td>
+            <td>Seattle</td>
+        </tr>
+        <tr>
+            <td>Steven</td>
+            <td>Type O</td>
+            <td>Chicago</td>
+        </tr>
+        <tr>
+            <td>Paul</td>
+            <td>Type AB</td>
+            <td>New York</td>
+        </tr>
+        <tr>
+            <td>Kyle</td>
+            <td>Type O</td>
+            <td>Miami</td>
+        </tr>
+    </table>
+</body>
+</html>

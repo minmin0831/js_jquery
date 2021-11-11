@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 3</title>
+</head>
+<body>
+    
+    <script>
+        // 아래와 같이 배열에 값을 넣어서 만들 수 있다.
+        var student = [
+        {name: 'John', english: 90, spanish: 75, mathematics: 80, science: 60},
+        {name: 'Lisa', english: 90, spanish: 75, mathematics: 80, science: 60},
+        {name: 'Thomas', english: 90, spanish: 75, mathematics: 80, science: 60}
+        ]
+        document.write(student[0].name + '<br>' + '<br>');
+
+        // 또는 빈 배열을 만들고 그 안에 객체를 push / pop 할 수도 있다. javascript의 배열은 java의 동적배열과 비슷하다. 
+        var students = [];
+        students.push({name: 'John', english: 90, spanish: 75, mathematics: 80, science: 60});
+        students.push({name: 'John', english: 90, spanish: 75}); // 이 객체를 하기에서 호출한다. 
+        document.write(students[1].name + '<br>');
+        document.write(students[1].english + '<br>');
+        document.write(students[1].spanish + '<br>');
+        document.write(students[1].mathematics + '<br>');
+    </script>
+
+</body>
+</html>

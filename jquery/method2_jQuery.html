@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <style>
+
+    </style>
+
+    <script>
+        // $.noConflict(); // 식별자 기호($)를 사용하지 않겠다고 선언. 
+        // var J = jQuery;
+        // J(document).ready(function () {
+        //     J("h1").css("color", "red"); // jQuery는 원래 식별자가 jQuery이다. 이름을 다 쓰기 불편하면, 위와 같이 변수에 담아 사용할 수 있다. 
+        // });
+        // // 플러그인에서 대부분은 jQuery라고 사용하지만 $를 사용하는 경우도 있다고 한다. 때문에 플러그인 사용 시, 이 점을 유의하도록 한다. 
+        
+        $(document).ready(function () {
+            //$("h1:odd").css("background", "yellow").css("color", "blue");
+            // $("h1:odd").css({
+            //     background: "yellow",
+            //     color: "blue"
+            // }); // 여러 가지 속성값을 부여할 수 있다. 
+
+            // $("h1").filter(":even").css({
+            //     background: "yellow",
+            //     color: "blue",
+            //     border: "1px solid red"
+            // });
+
+            $("h1").filter(function (index) {
+                return index%3 ===0; // 이 수식이 true 일 경우, 이후 css 메서드를 수행한다. 
+            }).css({
+                background: "yellow",
+                color: "blue",
+                border: "1px solid red"
+            });
+
+            //$("h2").css("background", "yellow").filter(":even").css("color", "red").filter(":odd").css("color", "blue");
+            //$("h2").css("background", "yellow").filter(":even").css("color", "red").filter(":odd").hide();
+            // filter 메서드는 chain 메서드로 사용될 경우 앞전 filter 결과를 바탕으로 다시 필터링한다. 
+
+            $("h2").css("background", "yellow").filter(":even").css("color", "red").end().filter(":odd").css("color", "blue");
+            // end() method는 직전 필터링 전 단계부터 시작할 수 있도록 한다. 필터링을 기준으로 해당 필터링 세션을 마무리하는 것이다. 
+
+            $(document).ready(function () {
+                //$("h3").eq(0).css("background", "orange");
+                $("h3").first().css("background", "orange");
+                // 필터 선택자가 아닌 필터 메서드를 이용할 수도 있다.
+                // 필터 메서드를 사용하면 선택자 입력란에 태그 연결 연산자를 사용할 필요없이 간편하게 사용할 수 있다.
+                //$("h3").eq(-1).css("background", "orange");
+                $("h3").last().css("background", "orange");
+                // 0은 첫번째 태그, -1은 마지막 태그를 의미한다.
+
+                $("h3").eq(-2).click(function () {
+                    $("h3").eq(-3).hide("slow");
+                });
+                // hide라는 메서드는 effect를 추가할 수도 있다. 마지막에서 두 번째 라인을 클릭하면 마지막에서 세번째 라인이 천천히 사라진다. 
+
+                $("h3").css({
+                    background: "green",
+                    color: "red"
+                }).add("p").css({
+                    color: "blue",
+                    border: "1px solid black"
+                });
+                // add()는 문서 객체를 추가하는 메서드이다. 
+                // css() 메서드는 앞전에 적용한 스타일을 업데이트 한다. 여기서는 글자색이 원래 red 였는데 blue로 바뀐 것을 확인할 수 있다. 
+
+                /* 중요 메서드 */
+                $(".target").css("color", "red");
+                //$("ul").css("border", "1px solid blue"); // ul 뿐만 아니라 body도 함께 선택된다. 
+                //$(".target").parent().css("border", "1px solid blue"); // parent() 메서드는 선택자의 부모 요소를 선택한다. 
+                // $(".target").parents().css("border", "1px solid blue"); // parents() 메서드는 선택자의 부모를 포함한 그 위에 모든 부모 및 부모 친구들까지 모두를 선택한다. 
+                //$(".target").closest("ul").css("border", "1px solid blue"); // 상위 요소 중에서 가장 가까운 ul 태그를 선택한다. 
+                // self를 포함한 요소이기 때문에 target(self가 현재 li)과 같은 li를 찾으면 자기 자신인 self를 선택한다. 
+                //$(".noodles").children("ul").css("border", "1px solid blue"); // 직계 자식 태그를 선택한다. 
+                //$(".noodles").prev("ul").css("border", "1px solid blue"); // 바로 위에 형 태그이다. 
+                //$(".noodles").prevAll("ul").css("border", "1px solid blue"); // 위에 형 태그 모두를 말한다. 
+                //$(".noodles").next("ul").css("border", "1px solid blue"); // 바로 아래 동생 태그이다. 
+                //$(".noodles").nextAll("ul").css("border", "1px solid blue"); // 바로 동생 태그 모두를 말한다. 
+                $(".noodles").siblings().css("border", "1px solid blue"); // 형 동생 가리지 않고 태그 모두를 말한다. 
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>LSFIHD Wednesday!</h1>
+    <h1>SFTIT Thirsday!</h1>
+    <h1>TGIF Friday!</h1>
+    <h1>SADS Saturday!</h1>
+    <h1>GRFHA Sunday!</h1>
+    <h1>jQuery class!</h1>
+
+    <br><br>
+
+    <h1>LSFIHD Wednesday!</h1>
+    <h1>SFTIT Thirsday!</h1>
+    <h1>TGIF Friday!</h1>
+
+    <br><br>
+
+    <h2>LSFIHD Wednesday!</h2>
+    <h2>SFTIT Thirsday!</h2>
+    <h2>TGIF Friday!</h2>
+    <h2>SADS Saturday!</h2>
+    <h2>GRFHA Sunday!</h2>
+    <h2>jQuery class!</h2>
+
+    <br><br>
+
+    <h3>LSFIHD Wednesday!</h3>
+    <h3>SFTIT Thirsday!</h3>
+    <h3>TGIF Friday!</h3>
+    <h3>SADS Saturday!</h3>
+    <h3>GRFHA Sunday!</h3>
+    <h3>jQuery class!</h3>
+    <p>제이쿼리를 실무에 활용하는 예제 중심 수업</p>
+
+    <br><br>
+
+    <h1>Menu</h1>
+    <ul>
+        <li>Pasta</li>
+        <li>Salmon Salad</li>
+        <li>Vegitable Fries</li>
+        <li class="noodles">Noodles
+            <ul>
+                <li class="target">Korean Style Noodles</li>
+                <li>HK Style Noodles</li>
+            </ul>
+        </li>
+        <li class="korean">Korean Ham Spicy Hotpot</li>
+    </ul>
+</body>
+</html>

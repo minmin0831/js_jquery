@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library EX</title>
+    <script src="jquery-1.11.3.min.js"></script>
+
+    <style>
+        h1 {
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+            var index;
+            var date = new Date();
+            var minute = date.getMinutes();
+            setInterval(function () {
+                if (minute == 14) {
+                    $('h1').css('background', 'yellow');
+                }
+            }, 10000);
+
+
+            var str = ['맑은 가을 날씨 입니다.', '확진자는 1536명 입니다.'];
+            $('h1').click(function () {
+                index = $(this).index();
+                $(this).html(str[index]);
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <h1>오늘의 날씨는?</h1>
+    <h1>오늘의 코로나 현황은?</h1>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions</title>
+
+    <style>
+        div {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <button onclick="showScoreResult();">Enter your score</button>
+    </div>
+    <div id="score_result"></div>
+
+
+    <div>
+        <button onclick="showDataResult();">Enter data</button>
+    </div>
+    <div id="data_result"></div>
+
+    <div>
+        <button onclick="showBooleanResult();">Enter positive or negative number</button>
+    </div>
+    <div id="boolean_result"></div>
+
+    <div>
+        <button onclick="showSumOfHundred();">Show sum of 100</button>
+    </div>
+    <div id="sum_result"></div>
+
+    <div>
+        <button onclick="showSumOfHundred();">Show sum of 100</button>
+    </div>
+    <div id="sum_result"></div>
+
+    <script>
+        function showScoreResult() {
+            var score = Number(prompt('점수를 입력하세요.'));
+            if (score >= 90) {
+                document.querySelector('#score_result').innerHTML = "Great!";
+            } else if (score >= 70) {
+                document.querySelector('#score_result').innerHTML = "It's okay.";
+            } else if (score >= 60) {
+                document.querySelector('#score_result').innerHTML = "Not bad."
+            } else {
+                document.querySelector('#score_result').innerHTML = "Try a little harder. "
+            }
+        }
+
+        function showDataResult() {
+            var input = Number(prompt('Enter data'));
+            var num = input % 2;
+            switch (num) {
+                case 0:
+                    document.querySelector('#data_result').innerHTML = "Even Number ";
+                    break;
+                case 1:
+                    document.querySelector('#data_result').innerHTML = "Odd Number ";
+                    break;
+                default:
+                    document.querySelector('#data_result').innerHTML = "It is not number. ";
+                    break;
+            }
+        }
+
+        function showBooleanResult() {
+            var input = Number(prompt('Enter positive or negative number'));
+            (input > 0) ? document.querySelector('#boolean_result').innerHTML = "positive number " : 
+            document.querySelector('#boolean_result').innerHTML = "negative number ";
+        }
+
+        function showSumOfHundred() {
+            var sum=0;
+            for(var i=1; i<=100; i++) {
+                sum += i;
+            }
+            document.querySelector('#sum_result').innerHTML = "The sum of 100 is " + sum;
+        }
+
+
+    </script>
+</body>
+
+</html>

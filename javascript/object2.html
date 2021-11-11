@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 2</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        var student = {
+            name: 'John Doe',
+            english: 90,
+            spanish: 75,
+            mathematics: 80,
+            science: 60,
+            total: function () {
+                var totalScore = this.english + this.spanish + this.mathematics + this.science;
+                eval("")
+            },
+            avg: function () {
+                var avgScore = totalScore / student.length - 1;
+            }
+        };
+
+        student.history = 100;
+
+        /*
+        document.write("** " + student.name + "'s grades **" + '<br>');
+        document.write('english : ' + student.english + '<br>');
+        document.write('spanish : ' + student.spanish + '<br>');
+        document.write('mathematics : ' + student.mathematics + '<br>');
+        document.write('science : ' + student.science + '<br>');
+        */
+
+        /*
+        var output = '';
+        output+='** ' + student.name + "'s grades **<br>";
+        output+='english : ' + student.english + '<br>';
+        output+='spanish : ' + student.spanish + '<br>';
+        output+='mathematics : ' + student.mathematics + '<br>';
+        output+='science : ' + student.science + '<br>';
+
+        output+='total : ' + (student.english + student.spanish + student.mathematics + student.science) + '<br>';
+        output+='average : ' + (student.english + student.spanish + student.mathematics + student.science) / 4 + '<br>';
+
+        document.write(output);
+        */
+
+        var output = '';
+        with (student) {
+            output += '** ' + name + "'s grades **<br>";
+            output += 'english : ' + english + '<br>';
+            output += 'spanish : ' + spanish + '<br>';
+            output += 'mathematics : ' + mathematics + '<br>';
+            output += 'science : ' + science + '<br>';
+
+            var length = student.length
+            var avg = (english + spanish + mathematics + science)/4
+            output += 'total : ' + (english + spanish + mathematics + science) + '<br>';
+            output += 'average : ' + avg + '<br>';
+        }
+        document.write(output);
+
+        
+
+    </script>
+
+</body>
+
+</html>

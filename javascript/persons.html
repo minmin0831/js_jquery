@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persons</title>
+    <style>
+        h1 {
+            padding: 10px;
+            text-align: center;
+            width: 500px;
+        }
+        p {
+            width: 500px;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script src="js/person.js"></script>
+    <script>
+        var chrisBrown = new createPerson('Chris Brown', 35, 'chris@brown.com', 'L.A. USA');
+        var drake = new createPerson('Drake', 30, 'drake@toronto.com', 'TO, Canada');
+        var nas = new createPerson('Nas', 40, 'nas@newyork.com', 'N.Y.C. USA');
+        var artists = [chrisBrown, drake, nas];
+        
+        document.write('<h1>Contact</h1>');
+        for(var i = 0; i < artists.length; i++) {
+            document.write('<p>' + artists[i].name + ' ' + artists[i].age + ' ' + artists[i].email + ' ' + artists[i].address + '</p>');
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
