@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch_items</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // var old_image = ['box1', 'lightbulb1', 'bad'];
+            // var new_image = ['box2', 'lightbulb', 'smile'];
+            // var index;
+            // $('img').hover(function () {
+            //     index = $(this).index();
+            //     $(this).attr('src', 'images/' + new_image[index] + '.png');
+            // }, function () {
+            //     $(this).attr('src', 'images/' + old_image[index] + 'png');
+            // });
+
+            var old_image;
+            var new_image = ['box2', 'lightbulb', 'smile'];
+            var index;
+            $('img').hover(function () {
+                index = $(this).index();
+                console.log(index);
+                old_image = $(this).attr('src');
+                $(this).attr('src', 'images/' + new_image[index] + '.png');
+            }, function () {
+                $(this).attr('src', old_image);
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="images/box1.png" alt="">
+    <img src="images/lightbulb1.png" alt="">
+    <img src="images/bad.png" alt="">
+</body>
+</html>

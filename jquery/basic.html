@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basics</title>
+    <style>
+        .item { background-color: yellow;}
+        .color_0 { color: red;}
+        .color_1 { color: blue;}
+        .color_2 { color: green;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('h1').addClass('item');
+            $('h1').addClass(function (index) {
+                return 'color_' + index;
+            });
+            $('button').click(function () {
+                $('h1').removeClass('item');
+            });
+            $('img').attr('width', 300);
+            // 속성을 가져와 속성값을 변경한다. 
+            $('img').click(function () {
+                console.log($(this).attr('src'));
+                console.log($(this).css('width'));
+            });
+
+            // click 함수는 함수를 하나 갖고 객체가 클릭되면 유일한 해당 함수가 작동한다. 
+            // hover 함수는 함수를 두 개 갖고 있으며, 객체에 hover가 되면 첫번째 함수가 작동하고 마우스가 벗어나면 두번째 함수가 작동한다. 
+            $('.box1').hover(function () {
+                var value;
+                if(event) {
+                    value = $(this).attr('src', 'images/box2.png');
+                } else {
+                    value = $(this).attr('src', 'images/box1.png');
+                }
+            }, function () {
+                value = $(this).attr('src', 'images/box1.png');
+            });
+
+            $('img').click(function (event) {
+                var value;
+                if(event.shiftKey) {
+                    value=$(this).index();
+                } else {
+                    value=$(this).attr('src');
+                }
+                console.log(value);
+            });
+
+            var old_image = ['box1', 'lightbulb1', 'bad'];
+            var new_image = ['box2', 'lightbulb', 'smile'];
+            var index;
+            $('.switch').hover(function () {
+                index = $(this).index();
+                $(this).attr('src', 'images/' + new_image[index] + '.png');
+            }, function () {
+                $(this).attr('src', 'images/' + old_image[index] + 'png');
+            });
+        });
+        
+        
+        
+    </script>
+</head>
+<body>
+    <button>배경색 지우기</button>
+    <h1>오늘은 금요일</h1>
+    <h1>제이쿼리 수업중..</h1>
+    <h1>다음주부터 홈페이지 제작 시작 (개인적으로)</h1>
+
+    <img src="images/Koala.jpg" alt="">
+    <img src="images/Desert.jpg" alt="">
+    <img src="images/Penguins.jpg" alt="">
+
+    <img src="images/box1.png" alt="" class="box1">
+
+    <img src="images/box1.png" alt="">
+    <img src="images/lightbulb1.png" alt="">
+    <img src="images/bad.png" alt="">
+
+    <img src="images/box1.png" alt="" class="switch">
+    <img src="images/lightbulb1.png" alt="" class="switch">
+    <img src="images/bad.png" alt="" class="switch">
+</body>
+</html>
