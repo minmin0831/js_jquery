@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basics</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <p>attr method</p>
+    <img class="image1" src="jquery/images/Koala.jpg" alt="">
+    <img class="image1" src="jquery/images/Penguins.jpg" alt="">
+    <img class="image1" src="jquery/images/Lighthouse.jpg" alt="">
+    <script>
+        $('.image1').attr('width', 300);
+    </script>
+
+    <p>attr method with function</p>
+    <img class="image2" src="jquery/images/Koala.jpg" alt="">
+    <img class="image2" src="jquery/images/Penguins.jpg" alt="">
+    <img class="image2" src="jquery/images/Lighthouse.jpg" alt="">
+    <script>
+        // $('.image2').first().width(100).height(100);
+        // $('.image2').eq(1).width(200).height(100);
+        // $('.image2').last().width(300).height(100);
+
+        // attr에 배열로 저장하여 사용할 수 있다. 
+        $('.image2').attr({
+            width: function (index) {
+                return (index + 1) * 100;
+            },
+            height: 100
+        });
+    </script>
+
+    <p>image width reverted to origin by button</p>
+    <img class="image3" src="jquery/images/Koala.jpg" alt="" width="300">
+    <img class="image3" src="jquery/images/Penguins.jpg" alt="" width="300">
+    <img class="image3" src="jquery/images/Lighthouse.jpg" alt="" width="300"><br>
+    <button class="btn1">view origin</button>
+    <script>
+        $('.btn1').click(function () {
+            $('.image3').removeAttr('width');
+            $('.btn1').click(function () {
+                $('.image3').attr({
+                    width: function (index) {
+                        return (index + 1) * 100;
+                    },
+                    height: 100
+                });
+            });
+            $('.btn').click(function () {
+                $('.image3').attr(width, '300');
+            });
+        });
+    </script>
+
+    <p class="feature">문서 객체 조작</p>
+    <p class="feature">이벤트</p>
+    <p class="feature">애니메이션(효과)</p>
+    <script>
+        // $('.feature').first().css('color', 'red');
+        // $('.feature').eq(1).css('color', 'green');
+        // $('.feature').last().css('color', 'blue');
+        var color = ['red', 'blue', 'green'];
+        $('.feature').css({
+            color: function (index) {
+                return color[index];
+            },
+            // 'background-color': 'yellow'
+            backgroundColor: 'yellow'
+        });
+
+        // var background = ['yellow', 'gray', 'blue']
+        // $('.feature').css('background', function (index) {
+        //     return background [index];
+        // });
+    </script>
+
+    <p>html() : 문서 객체 내부의 글자를 가져온다.</p>
+    <p>html(content) : 문서 객체 내부의 content를 변경한다.</p>
+    <p class="weather">오늘 날씨는?</p>
+    <script>
+        $('.weather').click(function () {
+            console.log($('.weather').html());
+            $('.weather').html('화창합니다.');
+            console.log($('.weather').html());
+        });
+    </script>
+
+    <p>문제</p>
+    <p class="status">오늘의 날씨는?</p>
+    <p class="status">오늘은 몇일?</p>
+    <p class="status">오늘의 코로나 현황은?</p>
+    <script>
+        var content = ["맑고 화창합니다.", "2021년 11월 15일입니다.", "2006명의 확진자가 발생했습니다."];
+        var index;
+        $('.status').click(function () {
+            console.log($(this).index());
+            index = $(this).index();
+            $(this).html(content[index]);
+        });
+        // index.html에서 확인.
+    </script>
+
+    <p>문제 : 현황을 누르면 옆에 태그를 추가하여 상태를 보여주기.</p>
+    <p class="status2">오늘의 날씨는?</p>
+    <p class="status2">오늘은 몇일?</p>
+    <p class="status2">오늘의 코로나 현황은?</p>
+    <script>
+        var content = ["맑고 화창합니다.", "2021년 11월 15일입니다.", "2006명의 확진자가 발생했습니다."];
+        var index;
+        $('.status2').click(function () {
+            if ($('this').html() == "오늘의 날씨는?") {
+                $('this').html('<p>' + content[index] + '</p>')
+            }
+        });
+    </script>
+
+    <p>text() 메서드: html() 메서드와 같은 역할을 하지만 해당 메서드는 태그를 인식하지 않는다.</p>
+    <div class="html1"></div>
+    <div class="html2"></div>
+    <div class="text1"></div>
+    <div class="text2"></div>
+    <script>
+        $('.html1').html('html method 사용. 오늘은 월요일입니다.');
+        $('.html2').html('<h3>html method 사용. 오늘은 월요일입니다.</h3>');
+        $('.text1').text('html method 사용. 오늘은 월요일입니다.');
+        $('.text2').text('<h3>html method 사용. 오늘은 월요일입니다.</h3> : 태그를 인식하지 못하여 그냥 태그까지 모두 출력.');
+    </script>
+
+    <p>문제</p>
+    <div class="date"></div>
+    <div class="date"></div>
+    <div class="date"></div>
+    <script>
+        var date = ['오늘은 월요일', '오늘은 화요일', '오늘은 수요일'];
+        var index;
+        $('.date').html(function (index) {
+            return '<h1>' + date[index] + '</h1>';
+        });
+    </script>
+
+    <p>문제</p>
+    <h3 class="feature2">제이쿼리 메서드</h3>
+    <h3 class="feature2">제이쿼리 이벤트</h3>
+    <h3 class="feature2">제이쿼리 효과</h3>
+    <script>
+        $('.feature2').html(function (index, html) {
+            return '★' + html + '★';
+        });
+    </script>
+
+    <p>문제</p>
+    <div>
+        <h3 class="feature3">제이쿼리 메서드</h3>
+        <h3 class="feature3">제이쿼리 이벤트</h3>
+        <h3 class="feature3">제이쿼리 효과</h3>
+    </div>
+    <script>
+        $('.feature3').first().remove();
+        // 문서객체 자체를 제거하는 기술은 장바구니에서 아이템을 제거하는데 사용되기도 한다.
+        $('.feature3').eq(0).empty();
+        // emtpy() method는 문서객체의 내용을 제거한다. 문서 객체는 그대로 남아있는다. (콘솔에서 확인 가능.)
+    </script>
+</body>
+
+</html>

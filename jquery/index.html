@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basics</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    </script>
+</head>
+
+<body>
+    <!-- <p>문제</p> -->
+    <p>오늘의 날씨는?</p>
+    <p>오늘은 몇일?</p>
+    <p>오늘의 코로나 현황은?</p>
+    <script>
+        
+        // $('.status').click(function () {
+        //     if($('.status').html() == "오늘의 날씨는?") {
+        //         $('.status').after($('p').addClass('inner'));
+        //         $('p').html('화창합니다.');
+        //     }
+        // });
+        var content = ["맑고 화창합니다.", "2021년 11월 15일입니다.", "2006명의 확진자가 발생했습니다."];
+        var index;
+        $('p').click(function () {
+            console.log($(this).index());
+            index = $(this).index();
+            $(this).html(content[index]);
+        });
+    </script>
+</body>
+
+</html>
