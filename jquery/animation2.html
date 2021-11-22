@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <button class="news_btn_show">뉴스 보기</button>
+    <button class="news_btn_hide">뉴스 숨기기</button>
+    <div class="news">
+        <h1>민주, 열린민주와 합당 추진 공식화…"통합에 속도"(종합)</h1>
+        <p>민주당 송영길 대표는 전날 열린민주당 최강욱 대표와 당대당 통합에 대한 의견을 나누고 통합을 추진하기로 합의했다고 민주당 고용진 수석대변인이 밝혔다.</p>
+        <p>향후 열린민주당의 협상 대표가 정해지면 협상단 차원에서 통합의 시기와 방식 등을 두고 실무 논의를 진행할 방침이다.</p>
+    </div>
+
+    <button class="image_btn_show">이미지 보기</button>
+    <button class="image_btn_hide">이미지 숨기기</button>
+    <div class="image">
+        <img src="/jquery/images/Koala.jpg" alt="">
+    </div>
+    
+    <style>
+        .news {
+            display: none;
+        }
+
+        .image {
+            display: none;
+        }
+    </style>
+    <script>
+        $('.news_btn_show').click(function () {
+            $('.news').slideDown(3000);
+        });
+
+        // $('.news_btn_show').click(function () {
+        //     $('.news').slideDown(1000);
+        // });
+
+        // $('.news_btn_hide').click(function () {
+        //     $('.news').slideup(1000);
+        // });
+
+        // $('.news_btn_show').slideToggle(1000);
+
+        /*
+        slideDown(1000)
+        slideup(1000)
+        slideToggle(1000)
+        
+        fadeIn(1000)
+        fadeOut(1000)
+        fadeToggle(1000)
+        */
+    </script>
+</body>
+
+</html>

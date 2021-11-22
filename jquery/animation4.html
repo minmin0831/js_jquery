@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation4</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="image">
+        <!-- <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div>
+        <div class="img"></div> -->
+        <img src="images/Koala.jpg" alt="">
+        <img src="images/Desert.jpg" alt="">
+        <img src="images/Penguins.jpg" alt="">
+        <img src="images/Jellyfish.jpg" alt="">
+        <img src="images/Lighthouse.jpg" alt="">
+    </div>
+
+    <style>
+        .image {
+            /* position: flex;
+            justify-content: center; */
+            position: relative;
+        }
+
+        img {
+            /* width: 200px;
+            height: 600px; */
+            position: absolute;
+        }
+
+    </style>
+    <script>
+        $('.image > img').css('width', 300);
+
+        fadeImage();
+
+        setInterval(function () {
+            fadeImage();
+        }, 2000);
+        
+        function fadeImage () {
+            $('.image > img').last().fadeOut(2000, function () {
+                $(this).prependTo('.image').fadeIn();
+            });
+        }
+        
+        /*
+        setInterval
+        setTimeout
+        */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation5</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <img src="images/Koala.jpg" alt="">
+
+    <style>
+
+    </style>
+    <script>
+        /*
+        사용자 정의 효과 - animate
+        slideUp, slideDown, slideToggle 등 효과를 모두 커버할 수 있는 메서드가 animate이다. 
+        $(selector).animate({});
+        $(selector).animate({}, speed);
+        $(selector).animate({}, speed, easing);
+        $(selector).animate({}, speed, easing, callback);
+         - 괄호 안에 객체가 위치하도록 한다. 이 객체는 속성값을 담는다. 
+        */
+        
+        $('img').css('height', 0).css('width', 1024);
+        $('img').animate({
+            height: 900
+        }, 5000)
+    </script>
+</body>
+
+</html>

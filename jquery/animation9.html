@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation9</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <button>큐 비우기</button><br><br>
+    <div class="div"></div><br>
+
+    <style>
+        .div {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+            position: relative;
+        }
+    </style>
+    <script>
+        $('.div').click(function () {
+            $(this).animate({
+                left: '+=50'
+            }, 2000).html(console.log('left 실행')).animate({
+                width: '+=50'
+            }, 2000).html(console.log('width 실행')).animate({
+                height: '+=50'
+            }, 2000).html(console.log('height 실행'))
+        });
+
+        $('button').click(function () {
+            $('.div').clearQueue();
+            console.log('큐 비우기');
+        });
+    </script>
+
+    <button>멈춤</button><br><br>
+    <img src="/jquery/images/car_green.jpg" alt="">
+
+    <style>
+        img {
+            width: 100px;
+            position: relative;
+        }
+    </style>
+    <script>
+        $('img').click(function () {
+            $(this).animate({
+                left:1000
+            }, 10000).animate({
+                top: 500
+            }, 10000);
+        });
+
+        $('button').click(function () {
+            $('img').stop(); 
+            $('img').stop(true); // true 의미는 clearQueue의 boolean 값을 true로 놓는다는 의미이다. 
+        });
+    </script>
+</body>
+
+</html>

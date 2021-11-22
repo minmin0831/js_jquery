@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shopping</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>에어컨</h1>
+    <h1>세탁기</h1>
+    <h1>냉장고</h1>
+
+    <script>
+        var count = [3, 5, 2];
+        var index;
+        $('h1').on('click', function () {
+            index = $(this).index();
+            count[index]--;
+            alert('구입해주셔서 감사합니다. (남은 수량' + count[index] + '대)');
+            if(count[index] == 0) {
+                alert('매진되었습니다.');
+                $(this).off();
+                $(this).html($(this).html() + ' 매진!!');
+                $(this).css({
+                    cursor: 'default',
+                    color: '#ccc'
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

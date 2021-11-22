@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <script>
+        /*
+        윈도우 이벤트 
+
+        ready
+        load
+        unload
+        resize
+        scroll
+        */
+
+        $(window).resize(function () {
+            console.log('resize');
+        });
+
+        // 무한 스크롤
+        for(var i=0; i<20; i++) {
+            $('<h1> 코로나 박멸!! 방역 철저!! </h1>').appendTo('body');
+        }
+        $(window).scroll(function () {
+            var scroll_height = $(window).scrollTop() + $(window).height();
+            var document_height = $(document).height();
+            // (window).scrollTop은 스크롤 후 스크롤 위에 남는 높이
+            // (window).height은 윈도우 높이
+            // (document).height은 문서 전체의 높이
+
+            if (scroll_height >= document_height - 200) {
+                for (var i = 0; i < 20; i++) {
+                    $('<h1> 코로나 박멸!! 방역 철저!! </h1>').appendTo('body');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

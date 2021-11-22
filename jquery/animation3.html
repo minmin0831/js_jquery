@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation3</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="image">
+        <img src="/jquery/images/Koala.jpg" alt="">
+        <img src="/jquery/images/Jellyfish.jpg" alt="">
+        <img src="/jquery/images/Penguins.jpg" alt="">
+    </div>
+    <style>
+        .image {
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        $('.image > img').last().fadeOut(10000, function() {
+            $('.image > img').eq(1).fadeOut(10000);
+        });
+    </script>
+</body>
+
+</html>

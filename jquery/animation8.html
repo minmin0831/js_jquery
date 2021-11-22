@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation8</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="div"></div><br>
+
+    <style>
+        .div {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        $('.div').click(function() {
+            // alert($(this).css('width'));
+            var wid = parseInt($(this).css('width'));
+            var hei = parseInt($(this).css('height'));
+            $(this).animate({
+                width: wid + 50, // parseInt() 메서드를 변수에 사용해도 되고, 그냥 css 속성값 지정 박스에서 사용해도 된다. parseInt(wid) + 50
+                height: hei + 50
+            }, 'slow');
+        });
+    </script>
+
+    <div class="div2"></div><br>
+    <style>
+        .div2 {
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        $('.div2').click(function() {
+            $(this).animate({
+                width: '+=50',
+                height: '+=50'
+            }, 'slow');
+        });
+    </script>
+</body>
+
+</html>

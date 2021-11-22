@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h2>Christian</h>
+    <h2>David</h2>
+    <script>
+        $('h2').on('click', function () {
+            $('body').append('hello, ' + $('h2').html());
+            $(this).off();
+        });
+    </script>
+
+    <h1>Chris</h1>
+    <script>
+        var count = 0;
+        $('h1').one('click', function () {
+            count++;
+            $('body').append('hello, ' + $('h2').html());
+        });
+    </script>
+
+    <div class="products">
+        <h3 class="product">Air Conditioner</h3>
+        <h3 class="product">Laundry Machine</h3>
+        <h3 class="product">Refrigerator</h3>
+    </div>
+    
+
+    <script>
+        var eletronics = [
+            {name: 'Air Conditioner', qty: 3},
+            {name: 'Laundry Machine', qty: 5},
+            {name: 'Refrigerator', qty: 2}
+        ];
+
+        $('.products > .product').on('click', function () {
+            var index = $(this).index();
+            // console.log(index);
+            var item = eletronics[index];
+            // console.log(item.name);
+            // console.log(item.qty);
+            // console.log(item.qty);
+            if(item.qty > 0) {
+                item.qty--;
+                console.log(item.qty);
+                alert($(this).html() + ' ' + item.qty + ' left');
+            } else {
+                alert($(this).html() + ' is out of stock.');
+            }
+        });
+
+        /*
+        에어컨 3대, 세탁기 5대, 냉장고 2대
+        에어컨 클릭 시 "구입해주셔서 감사합니다. (남은 수량 2대)"
+        "구입해주셔서 감사합니다. (남은 수량 0대)"
+        "매진되었습니다" 라는 메시지 보낸 후에 "냉장고 매진"
+        */
+    </script>
+</body>
+
+</html>

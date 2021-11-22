@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <h1>Chris</h1>
+    <h1>Paul</h1>
+    <h1>Ryan</h1>
+    <style>
+        .reverse {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        // 이벤트: 객체에 취하는 동작  
+        // on : 이벤트를 연결하는 메서드 
+        // click은 하나의 이벤트만 수행하지만 on은 여러 이벤트를 연결할 수 있다. 미래에 존재하는 객체에 어떤 동작을 취할수도 있다. 
+        $('h1').on('click', function () {
+            $(this).html(function (index, html) {
+                return html + '★';
+            });
+        });
+
+        // $('h1').on({
+        //     mouseenter: function () {
+        //         $(this).addClass('reverse');
+        //     },
+        //     mouseleave: function () {
+        //         $(this).removeClass('reverse');
+        //     }
+        // });
+
+        $('h1').hover(function () {
+            $(this).addClass('reverse');
+        }, function () {
+            $(this).removeClass('reverse');
+        });
+
+        // off : 이벤트를 제거하는 메서드.
+    </script>
+</body>
+
+</html>

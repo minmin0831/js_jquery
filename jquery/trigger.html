@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trigger preventDefault stopPropagation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // trigger: 이벤트를 강제로 발생시킨다. 
+            var star = '★';
+            $('h1').on('click', function (index) {
+                $(this).append(star);
+            });
+        });
+
+        // setInterval(function () {
+        //     $('h1').last().trigger('click');
+        // }, 5000);
+        // 트리거를 통해 기존에 코딩한 click 이벤트를 강제로 발생시킨다. 
+
+        // preventDefault: 기본 이벤트를 제거한다. 
+        // stopPropagation: 이벤트 전달을 제거한다. 
+    </script>
+    <style>
+        * {
+            margin: 5px;
+            padding: 5px;
+            border: 3px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>What's popin: </h1>
+    <h1>Whoa: </h1>    
+
+    <h2>
+        <a href="http://www.kbs.co.kr">한국방송</a>
+    </h2>
+    <script>
+        $('a').click(function (event) {
+            $(this).css('background-color', 'yellow');
+            // event.preventDefault(); // a 태그의 기본 이벤트를 제거한 것이다. 때문에 링크 텍스트를 아무리 눌러도 브라우저가 저장된 링크를 보여주지 않는다. 
+            event.stopPropagation(); // 자식 태그 이벤트가 발생했을 때, 부모 이벤트까지 전이되어 해당 이벤트가 발생하기 않도록 하는 메서드이다. 부모/자식 태그에 모두 이벤트가 걸려있을 때 자식 태그에 해당 메서드를 걸어주면 이벤트가 연쇄적으로 일어나지 않는다. 
+            // return false; // return false; 는 모든 이벤트를 제거해버린다. 부모 이벤트 연쇄 발생은 막고 자식 태그 자신의 이벤트는 발생시키고 싶을 때, 해당 제어문으로는 구현이 불가하다. 때문에 preventDefault(), stopPropagation과 같은 메서드가 개발된 것이다. 
+        });
+        $('h2').click(function (event) {
+            $(this).css('background-color', 'red');
+        });
+    </script>
+</body>
+
+</html>

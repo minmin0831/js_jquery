@@ -16,14 +16,17 @@
                 name: "John",
                 age: 23
             };
+
             $.extend(person, {
                 address: "성남시 분당구",
                 email: "john@gmail.com"
             });
+
             var output = "";
             $.each(person, function(key, val) {
                 output += key + " " + val + '<br>';
             });
+            
             //alert(output);
             document.write(output);
         });

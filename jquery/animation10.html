@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation9</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+    <button class="button">출발</button><br><br>
+    <img src="/jquery/images/car_green.jpg" class="img" alt="">
+
+    <style>
+        img {
+            width: 100px;
+            position: relative;
+        }
+    </style>
+    <script>
+        $('.button').click(function () {
+            $('.img').delay(1000).animate({ // Queue에 있는 명령을 잠시 중지한다. 이 경우 1초 뒤에 animate 메서드가 수행된다. 
+                left:1000
+            }, 10000).animate({
+                top: 500
+            }, 10000);
+        });
+
+        $('.button').click(function () {
+            
+        });
+    </script>
+
+    <br><br>
+
+    <button class="button2">출발</button><br><br>
+    <div>
+        <img src="/jquery/images/car_green.jpg" class="img2" alt=""><br>
+        <img src="/jquery/images/car_purple.jpg" class="img2" alt=""><br>
+        <img src="/jquery/images/car_red.jpg" class="img2" alt="">
+    </div>
+    
+    <script>
+        // $('.button2').click(function() {
+        //     $('.img2').animate({
+        //         left: 1000
+        //     }, 10000)
+        //     $('.img3').delay(500).animate({
+        //         left: 1000
+        //     }, 10000)
+        //     $('.img4').delay(1000).animate({
+        //         left: 1000
+        //     }, 10000)
+        // });
+
+        $('.button2').click(function () {
+            $('.img2').each(function (index) { // 태그명이나 클래스명이 동일할 경우, 이와 같이 인덱스로 식별하여 jquery 메서드를 수행시킬 수 있다. 
+                $(this).delay(index*500).animate({
+                    left: 1000
+                }, 10000);
+            });
+        });
+    </script>
+</body>
+
+</html>

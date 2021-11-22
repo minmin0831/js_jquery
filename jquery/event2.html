@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event2</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // 이벤트는 객체에 취하는 동작이다.
+            // mousedown : 객체를 마우스로 누르는 것.
+            // mousemove : 객체 위에서 마우스를 움직이는 것.
+            // mouseup : 객체에서 마우스를 띄우는 것.
+
+        });
+    </script>
+</head>
+
+<body>
+    <h1>이벤트 수업중..</h1>
+
+    <script>
+        $('h1').on('mousedown', function () {
+            alert('Hello');
+        });
+    </script>
+
+    <span>붓의 굵기</span>
+    <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+    <span>물감 색상</span>
+    <input type="color" class="color"/>
+    <button>지우기</button>
+    <canvas id="canvas" width="800" height="500"></canvas>
+
+
+    <style>
+        #canvas {
+            border: 3px solid black;
+            position: relative;
+            left: 100px;
+        }
+        
+    </style>
+    <script>
+        // 그림판 프로그램 (jquery에서 일부만 지원하기 때문에 순수 javascript와 함께 코딩한다.)
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var position;
+        var press;
+
+        $('button').click(function (event) {
+            canvas.width = canvas.width;
+            canvas.height = canvas.height;
+        });
+
+        $(canvas).on({ // on, click, hover와 같은 메서드는 parameter로 인덱스를 갖지 않고 이벤트를 갖는다. 
+            mousedown: function (event) {
+                press = true;
+                position = $(this).offset();
+                var x = event.pageX - position.left; // 브라우저 화면을 기준으로 한 X 좌표값에서 그림판 영역과 브라우저 화면 사이의 left 값을 뺀 값을 x 변수에 저장.
+                var y = event.pageY - position.top;
+                context.beginPath(); // 선을 그릴 준비를 한다. 
+                context.moveTo(x, y);
+            },
+            mousemove: function (event) {
+                if (press == true) {
+                    position = $(this).offset();
+                    var x = event.pageX - position.left;
+                    var y = event.pageY - position.top;
+                    context.lineWidth = $('select > option:selected').val();
+                    context.strokeStyle  = $('.color').val();
+                    context.lineTo(x, y); // 라인을 그려준다. 
+                    context.stroke();
+                }
+            },
+            mouseup: function (event) {
+                press = false;
+            }
+        });
+
+        
+    </script>
+</body>
+
+</html>

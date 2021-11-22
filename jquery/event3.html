@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wrap_h1">
+        <h1>코로나</h1>
+    </div>
+
+    <div id="wrap_h2">
+        <h2>박멸</h2>
+    </div>
+
+    <script>
+        // 현재 존재하는 객체에만 이벤트 연결 - $(선택자).on('이벤트이름', 함수)
+        $('h1').on('click', function () {
+            var length = $('h1').length; // h1의 개수를 length 변수에 저장한다. 
+            var text = $(this).html(); // 클릭한 h1의 텍스트를 text 변수에 저장한다. 
+            $('#wrap_h1').append('<h1>' + length + ' - ' + text + '</h1>');
+        });
+
+        // 현재 존재하는 객체와 미래에 존재하는 객체에 이벤트 연결 - $(선택자).on('이벤트이름', '선택자', 함수)
+        // 첫번째 선택자가 부모이고, 두번째 선택자가 자식 태그(들)이다. 
+        $('#wrap_h2').on('click', 'h2', function () {
+            var length = $('h2').length; // h1의 개수를 length 변수에 저장한다. 
+            var text = $(this).html(); // 클릭한 h1의 텍스트를 text 변수에 저장한다. 
+            $('#wrap_h2').append('<h2>' + length + ' - ' + text + '</h2>');
+        });
+        // 상기 코드는 코로나 환자 추적을 위한 앱에 사용할 수 있는 예제이다. 
+    </script>
+
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            padding: 50px;
+            margin: 10px;
+        }
+
+        .inner {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+    </style>
+    <script>
+        var count_mouseover = 0;
+        var count_mouseenter = 0;
+        $('.outer').mouseover(function () {
+            $('body').append('mouseover 수행 ');
+            // count_mouseover++;
+            // console.log('mouseover:' + count_mouseover);
+            // 부모태그 뿐만 아니라 자식태그에 mouseover 했을 때도 이벤트를 발생시킨다. 자식태그를 나오면서 부모태그가 선택되는 점도 인지해야 한다. 
+        }).mouseenter(function () {
+            $('body').append('mouseenter 수행 ');
+            // count_mouseenter++;
+            // console.log('mouseenter:' + count_mouseenter);
+            
+        });
+
+        /* 
+        mouse event : 
+        click (single click)
+        dbclick (double click)
+        mousedown (click and hold)
+        mousemove (move without click or drag with mousedown)
+        mouseup (release the mouse button)
+        *mouseenter (hover)
+        *mouseleave (before and after hover)
+        mouseover (hover)
+        mouseout (before and after hover)
+        */
+    </script>
+
+    
+    <div>
+        <p>아래 빈칸에 일기를 쓰시오.</p>
+        <h3>80</h3>
+        <textarea name="" id="" cols="30" rows="5"></textarea>
+    </div>
+
+    <style>
+        textarea {
+            resize: none;
+        }
+    </style>
+    <script>
+        $('textarea').keyup(function () {
+            var input_length = $(this).val().length;
+            var remain = 80 - input_length;
+            $('h3').html(remain);
+
+            if(remain >= 0) {
+                $('h3').css('color', 'black');
+                $('h3').html(remain);
+            } else {
+                $('h3').html('MMS');
+                $('h3').css('color', 'red');
+            }
+        });
+        /*
+        keyboard event
+        *keydown - keyboard를 누를 때 발생.
+        keypress - 글자가 입력될 때 발생 (영어만 해당)
+        keyup - keyboard를 뗄 때 발생
+
+        1. 사용자가 키보드를 누른다. 
+        2. keydown 이벤트가 발생한다. 
+        3. 글자가 입력된다. 
+        4. keypress 이벤트가 발생한다. 
+        5. 사용자가 키보드에서 손을 뗀다. 
+        6. keyup 이벤트가 발생한다. 
+        */
+    </script>
+</body>
+
+</html>

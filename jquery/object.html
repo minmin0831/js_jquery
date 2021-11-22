@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <h1>문서 객체 생성</h1>
+    <script>
+        $('<h1></h1>').html("I'm a new h1").appendTo('body');
+        $("<h1>I'm a new h1</h1>").appendTo('body');
+        $('<img class="koala" />').attr('src', '/jquery/images/Koala.jpg').attr('width', 300).appendTo('body');
+        $('<img />', {
+            src: '/jquery/images/Koala.jpg',
+            alt: 'Koala',
+            width: 300
+        }).appendTo('body');
+        /*
+        이 외에 prepend(), insertAfter(), insertBefore()가 있는데 w3school 참고.
+        A.appendTo(B): A를 B의 뒷부분에 추가한다.
+        A.prependTo(B): A를 B의 앞부분에 추가한다.
+        A.insertAfter(B): A를 B의 뒤에 추가한다.
+        A.insertBefore(B): A를 B의 앞에 추가한다.
+        
+        A.append(B): B를 A의 뒷부분에 추가한다. 
+        A.prepend(B): B를 A의 앞부분에 추가한다.
+        A.after(B): B를 A의 뒤에 추가한다.
+        A.before(B): B를 A의 앞에 추가한다.
+        */
+
+        var head1 = '<h1>현재는?</h1>';
+        var head2 = '<h2>쉬는 시간입니다.</h2>';
+        $('body').append(head1, head2);
+    </script>
+
+    <div class="area">
+        <img src="/jquery/images/Koala.jpg" alt="" class="pic">
+        <img src="/jquery/images/Desert.jpg" alt="" class="pic">
+        <img src="/jquery/images/Lighthouse.jpg" alt="" class="pic">
+        <img src="/jquery/images/Jellyfish.jpg" alt="" class="pic">
+        <img src="/jquery/images/Penguins.jpg" alt="" class="pic">
+    </div>
+    <style>
+        .area {
+            width: 250px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            overflow:hidden
+        }
+    </style>
+    <script>
+        $('.pic').css('width', 250);
+
+        // setInterval(function () {
+        //     $('.pic').first().appendTo('.area');
+        // }, 2000);
+
+    </script>
+</body>
+
+</html>
