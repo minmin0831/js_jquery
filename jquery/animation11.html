@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation9</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <img class="img" src="/jquery/images/car_purple.jpg" class="img2" alt=""><br>
+    <style>
+        .img {
+            position: relative;
+        }
+    </style>
+    <script>
+        var press=false;
+        var posLeft, posTop;
+
+        $('.img').on({
+            mousedown: function () {
+                press = true
+                posLeft = event.offsetX;
+                posTop = event.offsetY;
+                event.preventDefault();
+            },
+            mousemove: function () {
+                if(press) {
+                    var x = event.clientX - posLeft;
+                    var y = event.clientY - posTop;
+                    $(this).css({
+                        left: x,
+                        top: y
+                    });
+                }
+                event.preventDefault();
+            },
+            mouseup: function () {
+                press = false
+                event.preventDefault();
+            }
+        })
+    </script>
+</body>
+
+</html>
