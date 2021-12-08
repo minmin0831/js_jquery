@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jquery plugin4</title>
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="/jquery/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+  <style>
+    .dialog {
+      /* display: none; */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Schedule</h1>
+  <button class="dialog_open">일정 생성</button>
+  <input type="text">
+  <hr>
+
+  <!-- 저장되는 장소 -->
+  <div class="output">
+
+  </div>
+
+  <!-- 팝업창 영역 -->
+  <div class="popuparea">
+    <div id="position" class="dialog" title="일정관리">
+      <h2 class="dTitle">새로운 일정을 입력하세요.</h2>
+      <label for="event_name">일정 이름</label>
+      <input id="event_name" type="text"><br>
+      <label for="event_date">날짜</label>
+      <input id="event_date" type="text">
+    </div>
+  </div>
+
+  <style>
+    .popuparea {
+      position: relative;
+      width: 900px;
+      height: 900px;
+      background-color: orange;
+    }
+
+    .dialog {
+      position: absolute;
+      left: 0;
+      top: 50px;
+      width: 500px;
+      height: 500px;
+      background-color: yellow;
+    }
+  </style>
+
+  <script>
+    $('.dialog').dialog({
+      autoOpen: false,
+      buttons: {
+        save: function() {
+          var eName = $('#event_name').val();
+          var eDate=$('#event_date').val();
+          $('<h2></h2>').html(eName + ' : ' + eDate).appendTo('.output');
+          $('#event_name').val('');
+          $('#event_date').val('');
+          $('.dialog').dialog('close');
+        },
+        initialize: function() {
+          $('#event_name').val('');
+          $('#event_date').val('');
+        },
+        cancel: function() {
+          $('#event_name').val('');
+          $('#event_date').val('');
+          $('.dialog').dialog('close');
+        }
+      },
+      modal: true
+    });
+
+    $
+
+    $('.dialog_open').click(function () {
+      $('.dialog').dialog('open');
+    });
+
+    $('#event_date').datepicker({
+      dateFormat: "mm dd, yy",
+      numberOfMonths: 3
+    });
+
+    /*
+    dateFormat: 날짜 표현 양식 
+    numberOfMonths: view할 수 있는 month이 개수 
+    */
+
+    
+  </script>
+</body>
+
+</html>

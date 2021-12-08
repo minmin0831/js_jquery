@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery plugin2</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/jquery/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+
+    <style>
+      #big {
+        position: relative;
+        width: 400px;
+        height: 172px;
+        top: 0;
+        left: 50px;
+        align-items: center;
+      }
+
+      #big>p {
+        position: absolute;
+        height: 172px;
+        line-height: 172px;
+        top: 0;
+        left: 120px;
+        margin: auto 0;
+        z-index: -1;
+      }
+
+      #big>img {
+        position: absolute;
+        width: 300px;
+      }
+
+      #small {
+        width: 400px;
+        text-align: center;
+      }
+
+      #small>img {
+        width: 100px;
+      }
+    </style>
+</head>
+
+<body>
+  <div id="big">
+    <img src="/jquery/images/car_green.jpg" alt="">
+    <p>loading..</p>
+  </div>
+  <div id="small">
+    <img src="/jquery/images/car_purple.jpg" alt="">
+    <img src="/jquery/images/car_green.jpg" alt="">
+    <img src="/jquery/images/car_red.jpg" alt="">
+  </div>
+
+  <script>
+    var target;
+    $('#small>img').click(function() {
+      target = $(this).attr('src');
+      $('#big>img').hide('explode', 'slow', function() {
+        $('#big>img').attr('src', target).show('slow');
+      });
+    })
+  </script>
+</body>
+
+</html>

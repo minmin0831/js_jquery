@@ -1,0 +1,14 @@
+[
+  {
+    "name": "milk",
+    "price": 3000
+  },
+  {
+    "name": "kimbab",
+    "price": 900
+  },
+  {
+    "name": "cup noodle",
+    "price": 1200
+  }
+]

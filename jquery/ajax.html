@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Ajax</title>
+    <script src="/jquery/js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('h1').css('color', 'red');
+          $('div').css('color', 'blue');
+          
+          $.getJSON('/jquery/ajax.json', function(data) {
+            $.each(data, function(key, value) {
+              $('#goods_list').append(`<h2> ${value.name} : ${value.price} </h2>`);
+            });
+          });
+        });
+    </script>
+</head>
+<body>
+  <h1>Convenience Store Goods</h1>
+  <div id="goods_list">
+
+  </div>
+</body>
+</html>
