@@ -42,8 +42,6 @@ string = 'string';
 string = "string";
 string = `string`; // 세 가지 다른 형태로 텍스트를 감싼다. 일반적으로는 작은 따옴표를 쓴다. 
 
-
-
 var str = 'hello';
 var str2 = "world";
 var bool = true;
@@ -93,4 +91,41 @@ console.log(reg);
 
 var x;
 x = 5;
+
+
+/* Template Literal (ES6) */
+// multi-line string, expression interplation, tagged temlate 등 편리한 문자열 처리 기능을 제공.
+var template = `Template literal`;
+console.log(template);
+var templete2 = `Hello
+World.`; 
+console.log(templete2); 
+// 일반 문자열과 달리 줄바꿈이 허용된다. 
+// 일반 문자열을 사용할 때 줄바꿈을 위해 이스케이프 시퀀스 사용을 피할 수 있다는 장점이 있다. 
+var old_style = '<ul>\n\t<li><a href="#">Home</a></li>\n</ul>';
+console.log(old_style);
+var new_style = `<ul>
+  <li><a href="#">Home</a></la>
+  </ul>`;
+
+// 표현식 삽입
+var first = 'Minseok';
+var last = 'Jeon';
+console.log(`My name is ${first} ${last}.`);
+
+console.log(`1 + 2 = ${1 + 2}`); // 표현식 삽입 시, 평가 결과가 문자열이 아니더라도 문자열로 타입이 강제 변환되어 삽입된다. 
+console.log('1 + 2 = ${1 + 2}'); // 문자열로 취급됨. 
+
+/* undefined */
+var unassigned;
+console.log(unassigned); // undefined. javascript에서 개발자의 의도와 다르게 값을 임의로 할당한 것이기 때문에 변수에 값이 없다는 것을 명시하고 싶을 때는 그냥 null을 할당해준다. 
+
+/* null */
+var nullable = 'Lee';
+foo = null;
+console.log(foo);
+
+// var element = document.querySelector('.myClass');
+// console.log(element); 
+// 1_variables.html 문서에 myCalss 클래스를 갖는 요소가 없다면 null을 반환한다. 
 
