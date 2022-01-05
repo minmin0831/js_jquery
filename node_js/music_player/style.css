@@ -1,0 +1,56 @@
+
+    .pads {
+      background: lightblue;
+      width: 100%;
+      display: flex;
+    }
+
+    .pads>div {
+        width: 400px;
+        height: 450px;
+        /* background-image: url("bts1.png"); */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 490px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 30px;
+        color: red;
+    }
+
+    #root {
+      width: 400px;
+      height: 450px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 1200px;
+      height: 450px;
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .controls {
+      width: 400px;
+      height: 225px;
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .controls>div {
+      height: 25px;
+      cursor: pointer;
+    }
+
+    .pause {
+        display:none;
+    }

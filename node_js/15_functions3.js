@@ -75,6 +75,7 @@ console.log(calculator(10, 20, p));
 
 const sum = (a, b) => {
   const result = a + b;
-  return `두 수의 합은 = ${result}`;
+  return `두 수의 합은 = ${result}`; // return 문에 백틱을 이용하면 변수명에 값이 대입되어 문자열을 통째로 리턴한다. 
 }
 console.log(sum(20, 30));
+

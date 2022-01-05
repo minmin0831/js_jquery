@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music Player</title>
-  <style>
-    div {
-      font-size: 30px;
-    }
-    .background_image {
-      background-image: url()
-    }
-  </style>
+  <script src="/jquery/js/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="playbox">
-    <div class="title"></div>
-    <div class="background_image"></div>
-    <div class="controller">
+  <div id="root">
+    <div class="container">
+      <div class="pads">
+        <div class="pad1">
+          <p class="title1"></p>
+          <p class="artist1"></p>
+          <audio class="sound" id="sound1" src=""></audio>
+        </div>
+        <div class="pad2">
+          <p class="title2"></p>
+          <p class="artist2"></p>
+          <audio class="sound" id="sound2" src=""></audio>
+        </div>
+        <div class="pad3">
+          <p class="title3"></p>
+          <p class="artist3"></p>
+          <audio class="sound" id="sound3" src=""></audio>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
       <div class="prev">prev</div>
-      <div class="fivesec_prev">5sec prev</div>
       <div class="pause">pause</div>
       <div class="play">play</div>
-      <div class="fivesec_next">5sec next</div>
       <div class="next">next</div>
     </div>
   </div>
+  
+
+  <script src="script.js"></script>
+  <script src="audio_list.json"></script>
 </body>
+
 </html>
