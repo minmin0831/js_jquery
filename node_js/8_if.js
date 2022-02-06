@@ -27,7 +27,7 @@ console.log(a > b || c == d); // 전자는 false, 후자는 true 이지만 조�
 console.log(a < b && c == d); // 실제 둘 다 true이며 조건은 둘 다 true이어야만 결과로 true를 반환. 
 console.log(a > b && c == d); // 전자는 false, 후자는 true 이지만 조건은 둘 다 true이어야만 결과로 true를 반환. 
 
-// 삼항 연산자 ㅇ
+// 삼항 연산자 
 const num2 = 10;
 const num3 = 20;
 const result = num2 > num3 ? 'num2' : 'num3'; // ? 선행문의 결과가 true이면 : 의 왼쪽 값을 ? 선행문의 결과가 false이면 : 의 오른쪽 값을 반환한다. 
